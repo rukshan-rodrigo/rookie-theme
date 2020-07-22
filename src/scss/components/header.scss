@@ -1,0 +1,314 @@
+/* ------------------ Header ------------------ */
+
+#navbar-main {
+  padding: 0;
+  background: $primary-shade;
+  height: auto;
+
+  @include breakpoint(xlarge) {
+    padding: 0 1rem;
+    height: $navbar-height;
+  }
+}
+
+.navbar-brand {
+  padding: 0.75rem 1rem;
+  @include breakpoint(large) {
+    margin: 0 1rem 0 0;
+  }
+}
+
+@media (max-width: 33.9em) {
+  .navbar-toggleable-xs .navbar-nav .nav-item + .nav-item,
+  .navbar-toggleable-xs.collapse.in .navbar-nav .nav-item {
+    margin-left: 0;
+    float: none;
+  }
+}
+
+@media (max-width: 47.9em) {
+  .navbar-toggleable-sm .navbar-nav .nav-item + .nav-item,
+  .navbar-toggleable-xs.collapse.in .navbar-nav .nav-item {
+    margin-left: 0;
+    float: none;
+  }
+}
+
+.header {
+  .container > .navbar-form {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 0;
+
+    .region-header-form {
+      display: flex;
+      justify-content: flex-end;
+
+      .form-group {
+        margin-bottom: 0;
+      }
+    }
+
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+  .navbar-collapse > .navbar-form {
+    display: none;
+
+    @include breakpoint(large) {
+      display: block;
+    }
+  }
+
+  .navbar-expand-md {
+    .collapse:not(.show) {
+      display: none !important;
+      @include breakpoint(large) {
+        display: flex !important;
+      }
+    }
+    .navbar-toggler {
+      display: block;
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
+    > .container {
+      flex-wrap: wrap !important;
+    }
+  }
+
+  .menu--main {
+    flex-grow: 1;
+
+    .navbar-nav {
+      padding: 1rem 2rem;
+      background-color: $gray-300;
+
+      @include breakpoint(large) {
+        padding: 0;
+        height: $navbar-height;
+        justify-content: space-between;
+        margin-left: 5rem;
+        background-color: transparent;
+      }
+
+      > li {
+        width: 100%;
+        position: relative;
+
+        @include breakpoint(large) {
+          width: auto;
+          max-width: 7.5rem;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &.menu-item--expanded {
+          display: block;
+          position: relative;
+
+          @include breakpoint(large) {
+            display: flex;
+          }
+
+          .toggle {
+            width: 2rem;
+            height: 2rem;
+            display: block;
+            position: absolute;
+            right: 0;
+            z-index: 2;
+
+            &:before,
+            &:after {
+              content: " ";
+              position: absolute;
+              display: block;
+              background-color: $primary;
+              width: 22px;
+              height: 3px;
+              right: 6px;
+              top: 17px;
+              z-index: 9;
+            }
+            &:after {
+              height: 22px;
+              width: 3px;
+              top: 8px;
+              right: 15px;
+              z-index: 9;
+            }
+
+            @include breakpoint(large) {
+              display: none;
+            }
+          }
+          &.js-open {
+            .toggle:after {
+              display: none;
+            }
+            .dropdown-menu {
+              display: block;
+              &:after {
+                display: none;
+              }
+              @include breakpoint(large) {
+                &:after {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+
+        a {
+          color: $primary;
+          width: 100%;
+          font-weight: 500;
+          font-size: 1.25rem;
+
+          @include breakpoint(large) {
+            color: $white;
+            width: auto;
+            font-weight: bold;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .nav-link {
+      font-weight: 600;
+      @include breakpoint(large) {
+        border-bottom: 2px solid $primary;
+      }
+      &:hover,
+      &:focus {
+        transition: all 0.25s ease;
+        font-weight: 700;
+        text-decoration: underline;
+
+        @include breakpoint(large) {
+          background-color: transparent;
+          border-bottom: 2px solid $white;
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      background: $gray-200;
+      color: $primary;
+      border: none;
+      border-radius: 0;
+      top: 0;
+      left: 0;
+      padding: 0;
+      margin: 0;
+
+      @include full-bg-cover($bgcolor: $gray-200);
+      &:before {
+        z-index: -1;
+      }
+
+      @include breakpoint(large) {
+        background: $gray-300;
+        top: 100%;
+        left: calc(-99px + 50%);
+        position: absolute;
+      }
+
+      &::after {
+        content: " ";
+        display: none;
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 10px);
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 10px solid $gray-300;
+        @include breakpoint(large) {
+          display: block;
+        }
+      }
+
+      .dropdown-item {
+        max-width: 100%;
+        padding: 0.625rem 1rem;
+
+        @include breakpoint(large) {
+          width: 198px;
+        }
+
+        &.active {
+          background-color: inherit;
+        }
+        &:active {
+          background-color: inherit;
+          font-weight: 600;
+        }
+
+        &:focus,
+        &:hover {
+          text-decoration: none;
+          background-color: $gray-400;
+
+          a {
+            font-weight: 600;
+          }
+        }
+
+        a {
+          color: $primary;
+          text-decoration: none;
+          white-space: pre-wrap;
+          padding-left: 1rem;
+          display: block;
+
+          @include breakpoint(large) {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    .dropdown-toggle {
+      white-space: normal;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .navbar-toggler {
+    color: $primary;
+    font-size: 2.25rem;
+    background-color: $gray-300;
+    border-radius: 0;
+    border: 0;
+
+    .fa-bars {
+      padding: 1rem;
+      &:before {
+        content: "\f00d";
+      }
+    }
+
+    &.collapsed {
+      color: $white;
+      background-color: transparent;
+      .fa-bars::before {
+        content: "\f0c9";
+      }
+    }
+  }
+}

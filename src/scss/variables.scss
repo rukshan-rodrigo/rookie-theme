@@ -1,0 +1,111 @@
+/* stylelint-disable plugin/no-browser-hacks */
+/* VARIABLES */
+
+// colors
+$primary: #28336e;
+$primary-shade: #28336e;
+$primary-hover: #1e2653;
+$primary-light: lighten($primary-shade, 37%);
+$primary-dark: darken($primary-shade, 12%);
+$accent-shade: #0079c0;
+$accent-light: lighten($accent-shade, 37%);
+$accent-dark: darken($accent-shade, 12%);
+$body-color: #49494b;
+$light-blue-bg: #f7f9fd;
+$dark-gray-color: #333;
+$light-gray-color: #666;
+$gray-color: #ccc;
+
+// Reassign color vars to semantic color scheme
+$red: #802e3a;
+$red2: #987273;
+$yellow: #ffc107;
+$orange: #e0603b;
+$green: #28a745;
+$cyan: #17a2b8;
+$blue-soft-bg: #dadfff;
+$green-soft-bg: #a5fc97;
+$orange-soft-bg: #ffdacf;
+$brown-bg: #997863;
+$brown-soft-bg: #dbd2cd;
+$grey-bg: #686868;
+$grey-soft-bg: #dedede;
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dce0e5; // Menu BG, Card border
+$gray-400: #ebedf0; // Menu hover
+$gray-500: #eceffa; // Child menu left border
+$gray-600: #f7f9fc; // Child menu hover
+$gray-800: #343a40;
+$black: #000;
+$white: #fff;
+$btn-secondary-hover: #e3e4e6;
+$theme-colors: (
+  primary: $accent-shade,
+  secondary: $primary-shade,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800
+);
+$brand-primary: $accent-shade;
+$footer-color: #707073;
+//$brand-success: $green;
+//$brand-info: $teal;
+//$brand-warning: $orange;
+//$brand-danger: $red;
+$brand-inverse: $primary-shade;
+$font-size-sm: 1.1rem;
+
+// Body
+//
+// Settings for the `<body>` element.
+//$body-bg: $white;
+//$body-color: $gray-dark;
+$inverse-bg: $primary-shade;
+//$inverse-color: $gray-lighter;
+// Links
+//
+// Style anchor elements.
+$link-color: $accent-shade;
+$link-decoration: none;
+$link-hover-color: $accent-dark;
+$link-hover-decoration: underline;
+
+// Responsive font sizes
+$enable-responsive-font-sizes: true;
+
+// Spacing
+$spacer: 1.5rem;
+
+// Typography
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25;
+$font-size-sm: $font-size-base * 0.875;
+$headings-line-height: 1.2;
+$line-height-sm: 1;
+$line-height-lg: 1.5;
+
+// Forms
+$input-height: 25px;
+
+// Item List
+$list-group-item-padding-y: 1rem;
+$list-group-item-padding-x: 1.25rem;
+
+// Global
+$border-width: 1px;
+$border-color: $gray-100;
+$navbar-height: 98px;
+
+// Table
+$table-cell-padding: 0.75rem;
+$table-border-width: 1px;
+$table-border-color: $accent-light;
+
+// Breadcrumbs
+$breadcrumb-divider: quote("»");
+$breadcrumb-item-padding: 1rem;

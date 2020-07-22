@@ -1,0 +1,171 @@
+/* stylelint-disable plugin/no-browser-hacks */
+/* stylelint-disable at-rule-no-unknown */
+/* MIXINS */
+@import "variables";
+
+// Breakpoint
+$breakpoints: (
+  small: 575px,
+  medium: 767px,
+  large: 993px,
+  xlarge: 1200px,
+  xxlarge: 1441px
+);
+
+@mixin breakpoint($bp) {
+  @if not map_has_key($breakpoints, $bp) {
+    @error "Can't find $breakpoint: #{$bp} in $breakpoints map.";
+  }
+
+  @media (min-width: map_get($breakpoints, $bp)) {
+    @content;
+  }
+
+  body.cke_editable & {
+    @content;
+  }
+}
+
+@mixin card-rect($left-width) {
+  border: 2px solid #dce0e5;
+  border-radius: 0.625rem;
+
+  @include breakpoint(large) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    word-wrap: break-word;
+    background-clip: border-box;
+  }
+
+  .card-left {
+    img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 0.525rem;
+      border-top-right-radius: 0.525rem;
+    }
+
+    @include breakpoint(large) {
+      width: $left-width;
+
+      img {
+        border-top-left-radius: 0.525rem;
+        border-bottom-left-radius: 0.525rem;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+
+  .card-right {
+    flex: 1;
+    margin: 1.5rem;
+
+    @include breakpoint(large) {
+      margin: 0 1.5rem;
+
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS styles go here */
+        .node--view-mode-featured-articles-posts & {
+          flex: 1 0 600px;
+        }
+      }
+    }
+
+    @include date-tags();
+  }
+
+  h3,
+  h4,
+  h5 {
+    margin-top: 0.5rem;
+
+    a {
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+  }
+
+  .read-more {
+    color: #49494b;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+  }
+}
+
+@mixin date-tags() {
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+
+    .card-date,
+    .card-tags {
+      font-size: 0.875rem;
+    }
+
+    .card-tags {
+      margin-left: 1rem;
+
+      a {
+        color: $white;
+        background: $primary;
+        padding: 2px 5px;
+        border-radius: 0.25rem;
+
+        &:hover,
+        &:focus {
+          background-color: $primary-hover;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin heading-underline() {
+  margin-bottom: 2rem;
+  &:after {
+    content: "";
+    display: block;
+    max-width: 11.15rem;
+    height: 5px;
+    border-bottom: $red2 solid 5px;
+  }
+}
+
+@mixin right-arrow($color: $body-color, $marginLeft: 0.25rem) {
+  &:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    align-items: center;
+    transform: rotate(-45deg);
+    border: solid $color;
+    border-width: 0 2px 2px 0;
+    margin-left: $marginLeft;
+    display: inline-block;
+  }
+}
+
+@mixin full-bg-cover($bgcolor: $light-blue-bg) {
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    background: $bgcolor;
+    border: inherit;
+    top: 0;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+}

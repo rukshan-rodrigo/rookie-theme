@@ -1,0 +1,65 @@
+@import "../../mixins";
+@import "../../variables";
+.view-filters {
+  margin-bottom: 2rem;
+  background-color: $gray-600;
+  padding: 1rem;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  .form-row > [class*="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  label {
+    font-weight: 600;
+  }
+  .js-form-item-field-qao-financial-year-target-id,
+  .js-form-item-field-status-value {
+    width: 100%;
+    @include breakpoint(large) {
+      width: 25%;
+    }
+  }
+  .js-form-item-field-parliamentary-committee-target-id {
+    width: 100%;
+    @include breakpoint(large) {
+      width: calc(50% - 120px);
+    }
+  }
+
+  .view-reports-to-parliament & {
+    .js-form-item-field-topics-value,
+    .js-form-item-field-financial-year-list-value,
+    .js-form-item-field-sectors-target-id {
+      width: 95%;
+      @include breakpoint(large) {
+        width: 33%;
+      }
+      .chosen-container {
+        width: 100% !important;
+      }
+    }
+    .js-form-type-select {
+      display: flex;
+      flex-direction: column;
+    }
+    .chosen-container-multi {
+      padding: 0.25rem;
+      margin-top: 12px;
+      .chosen-choices {
+        border: 0;
+        background-image: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .js-form-item-keys {
+      @include breakpoint(large) {
+        min-width: 300px;
+      }
+    }
+  }
+}

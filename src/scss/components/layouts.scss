@@ -1,0 +1,79 @@
+.layout--twocol-section.layout--twocol-section--25-75 > .layout__region--first,
+.layout--twocol-section.layout--twocol-section--75-25 > .layout__region--second {
+  flex: 0 1 100%;
+  @include breakpoint(large) {
+    flex: 0 1 20%;
+    padding-right: 2%;
+  }
+
+  .path-frontpage & {
+    @include breakpoint(large) {
+      flex: 1;
+      padding-left: 5%;
+    }
+  }
+}
+
+.layout--twocol-section.layout--twocol-section--25-75 > .layout__region--second,
+.layout--twocol-section.layout--twocol-section--75-25 > .layout__region--first {
+  flex: 0 1 100%;
+  @include breakpoint(large) {
+    flex: 0 1 78%;
+  }
+  .path-frontpage & {
+    @include breakpoint(large) {
+      flex: 2;
+    }
+  }
+}
+
+.sidebar.col-lg-3 {
+  flex: 0 1 100%;
+  @include breakpoint(large) {
+    flex: 1 0 20%;
+    max-width: 20%;
+    padding-right: 2%;
+    .block {
+      padding: 0;
+    }
+  }
+}
+
+.view-reports-to-parliament .layout__region--second {
+  @include breakpoint(large) {
+    padding-left: 2rem;
+  }
+}
+
+.view-fact-sheets .views-row {
+  width: 100%;
+}
+
+.main-content .node--type-page > .node__content > .layout--twocol-section {
+  > .layout__region--first {
+    order: 2;
+    @include breakpoint(large) {
+      order: 1;
+    }
+  }
+  > .layout__region--second {
+    order: 1;
+    @include breakpoint(large) {
+      order: 2;
+    }
+  }
+
+  .path-frontpage & {
+    > .layout__region--first {
+      order: 1;
+      margin-bottom: 2rem;
+
+      @include breakpoint(large) {
+        margin-bottom: 0;
+      }
+    }
+    > .layout__region--second {
+      order: 2;
+    }
+  }
+}

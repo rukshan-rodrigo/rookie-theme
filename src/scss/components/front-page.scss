@@ -1,0 +1,127 @@
+.path-frontpage {
+  .layout-main-wrapper > .container {
+    max-width: 100% !important;
+    > .row > .main-content {
+      padding: 0;
+    }
+  }
+
+  .layout--twocol-section,
+  .block-views-blockhome-latest-reports-block-1,
+  .block-views-blockhome-contribute-to-our-audits-block-1 {
+    padding: 2rem 1rem;
+
+    @include breakpoint(large) {
+      padding: 3rem 0;
+    }
+
+    h2 {
+      @include heading-underline();
+
+      margin-bottom: 2.5rem;
+      &:after {
+        margin-top: 0.25rem;
+      }
+    }
+  }
+}
+
+.layout--twocol-section--75-25 {
+  max-width: 1110px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.path-frontpage .layout--twocol-section {
+  .block-views-blockhome-blog-block-1 {
+    position: relative;
+    .views-element-container,
+    .view-display-id-block_1 {
+      position: static;
+    }
+    .view-header {
+      position: absolute;
+      right: 1.5rem;
+      bottom: -20px;
+
+      @include breakpoint(large) {
+        top: 0;
+        right: 0;
+        bottom: auto;
+      }
+
+      .see-all-blog-posts {
+        font-weight: 600;
+        color: $body-color;
+        font-size: 1.125rem;
+
+        @include right-arrow($color: $body-color, $marginLeft: 0.25rem);
+      }
+    }
+    .views-row {
+      border: 2px solid $gray-300;
+      padding: 1.5rem 1.5rem 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+
+      .views-field-field-date {
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .views-field-title {
+        margin-bottom: 1rem;
+        a {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .block-views-blockhome-fact-sheet-block-1 {
+    .views-element-container {
+      padding: 0;
+    }
+    .views-element-container .view-home-fact-sheet {
+      background-color: $gray-500;
+      border-radius: 0.75rem;
+      border: 1px solid $footer-color;
+      padding: 1.5rem;
+
+      .view-content {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .views-row {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $footer-color;
+        margin-bottom: 1.25rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        @include right-arrow($color: $primary, $marginLeft: auto);
+        .views-field-title {
+          flex: 1 0 85%;
+          a {
+            font-weight: 500;
+            width: 100%;
+          }
+        }
+      }
+
+      .more-link {
+        padding: 0;
+        a {
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          @include right-arrow($color: $body-color, $marginLeft: 0.25rem);
+        }
+      }
+    }
+  }
+}

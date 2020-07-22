@@ -1,0 +1,522 @@
+@import "../../mixins";
+@import "../../variables";
+@import "../../typography";
+
+article.node--type-audit-report #appendices {
+  margin-top: 4rem;
+  margin-bottom: 2.5rem;
+}
+
+.embedded-entity {
+  display: inline-block;
+  > img {
+    margin-bottom: 1rem;
+  }
+  &.align-left > img {
+    margin-right: 1.25rem;
+  }
+  &.align-right {
+    ~ * {
+      display: block;
+    }
+    > img {
+      margin-left: 1.25rem;
+    }
+  }
+  &.align-center {
+    display: block;
+    margin: auto;
+  }
+}
+
+article.node--type-audit-report {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    color: $dark-gray-color;
+  }
+}
+
+.block-field-blocknodeaudit-reportfield-overview-text {
+  margin-bottom: 1rem;
+}
+
+// social-sharing-buttons
+.social-sharing-buttons {
+  justify-content: start;
+  margin: 1rem 0;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.layout--onecol:first-child {
+  margin-bottom: 2.5rem;
+  .field--name-body {
+    a {
+      font-size: 1.25rem;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+// Chapter header
+.paragraph--type--chapter-header {
+  .field--name-field-background-image {
+    position: relative;
+
+    &:before {
+      content: "";
+      min-height: 200px;
+      height: 200px;
+      background-color: rgba(25, 38, 100, 0.6);
+      position: absolute;
+      width: 100vw;
+      z-index: -1;
+      left: calc(50% - 50vw);
+
+      @include breakpoint(large) {
+        left: calc(185px - 50vw);
+      }
+    }
+    img {
+      position: absolute;
+      width: 100vw;
+      min-height: 200px;
+      height: 200px;
+      z-index: -2;
+      left: calc(50% - 50vw);
+      @include breakpoint(large) {
+        left: calc(185px - 50vw);
+      }
+    }
+  }
+
+  .field--name-field-heading {
+    margin: 2.5rem 0;
+    padding-top: 0;
+    height: 200px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+// Text region
+.main-content {
+  .field--name-field-title {
+    padding-top: 0.625rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.625rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  ul {
+    padding-left: 1.5rem;
+  }
+  ul li {
+    list-style: none;
+    position: relative;
+    padding: 2px;
+    &:before {
+      content: "•";
+      display: block;
+      position: absolute;
+      color: $gray-800;
+      font-size: 3rem;
+      width: 0;
+      left: -1.5rem;
+      top: -1.5rem;
+    }
+  }
+
+  ul > li > ul > li:before {
+    content: "-";
+    font-size: 1.5rem;
+    top: -0.25rem;
+  }
+}
+
+article.node--type-audit-report .field--name-field-overview-text h2,
+article.node--type-audit-report .field--name-field-heading h2,
+#appendices {
+  color: $white;
+  padding-left: 1.25rem;
+  border-left: 10px solid $orange;
+  margin-bottom: 1.125rem;
+  margin-top: 1.125rem;
+  font-size: 2rem;
+
+  @include breakpoint(large) {
+    font-size: 2.5rem;
+  }
+}
+article.node--type-audit-report .field--name-field-overview-text h2 {
+  color: $dark-gray-color;
+}
+article.node--type-audit-report .field--name-field-text > h2 {
+  color: $dark-gray-color;
+  font-size: 1.875rem;
+}
+
+// Chart
+.tablefield {
+  tbody {
+    border-top: 0;
+
+    @include breakpoint(large) {
+      border-bottom: 1px solid $primary;
+    }
+  }
+  thead th {
+    background-color: $primary;
+    padding: 1.25rem;
+    color: $white;
+    border-top: 0;
+    display: none;
+
+    @include breakpoint(large) {
+      display: table-cell;
+    }
+  }
+  td {
+    vertical-align: middle;
+    padding: 0.5rem 1.25rem;
+    color: $body-color;
+    display: block;
+    border-top: 0;
+
+    @include breakpoint(large) {
+      color: $primary;
+      display: table-cell;
+    }
+
+    &:before {
+      content: attr(data-key);
+      display: block;
+      font-weight: 400;
+      color: $primary;
+
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
+
+    ~ td {
+      color: $body-color;
+    }
+  }
+}
+// Figure container
+.paragraph--type--figure {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+
+  .paragraph--type--table,
+  .field--name-field-figure-image {
+    margin: 1.75rem 0;
+  }
+
+  .field--name-field-figure-id {
+    text-transform: uppercase;
+    font-stretch: condensed;
+    font-weight: 600;
+    background: $gray-200;
+    border-radius: 5px;
+    padding: 5px 11px 5px 11px;
+    margin-right: 12px;
+    margin-bottom: 0.25rem;
+    display: inline-block;
+    white-space: nowrap;
+    color: $light-gray-color;
+  }
+
+  .field--name-field-figure-heading {
+    display: inline-flex;
+    font-weight: bold;
+    color: $dark-gray-color;
+    align-items: center;
+  }
+
+  .field--name-field-figure-notes,
+  .field--name-field-figure-source {
+    margin-top: 0.625rem;
+    font-size: 0.875rem;
+
+    p {
+      margin-bottom: 0.625rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .field--name-field-columns {
+    display: none;
+  }
+
+  @include breakpoint(large) {
+    &.figure-column-1,
+    &.figure-column-2,
+    &.figure-column-3,
+    &.figure-column-4 {
+      display: flex;
+      flex-wrap: wrap;
+      > .field--name-field-figure-id,
+      > .field--name-field-figure-heading {
+        flex: none;
+        margin-bottom: 1rem;
+        height: 100%;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-family: $font-roboto;
+      }
+      > .field--name-field-figure-heading {
+        width: 80%;
+        padding: 5px 0;
+      }
+    }
+
+    &.figure-column-1 > div {
+      flex: 1 0 100%;
+    }
+    &.figure-column-2 > div {
+      flex: 1 0 49%;
+    }
+
+    &.figure-column-3 > div {
+      flex: 1 0 33%;
+    }
+
+    &.figure-column-4 > div {
+      flex: 1 0 24%;
+    }
+  }
+}
+
+//Definition, Report on a page, Dashboard
+.paragraph--type--definition,
+.paragraph--type--dashboard,
+.paragraph--type--report-on-a-page {
+  background-color: $gray-100;
+  padding: 2rem 3rem 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.paragraph--type--definition {
+  .field--name-field-footnote-tag {
+    background-color: $green;
+    color: $white;
+    border-radius: 5px;
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+    margin-right: 0.75rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-stretch: condensed;
+    text-transform: uppercase;
+
+    &:before {
+      content: " ";
+      background: url("/themes/custom/qao/dist/images/icons/eyeglasses.svg") center center no-repeat;
+      display: inline-block;
+      text-indent: -9999px;
+      width: 35px;
+      height: 14px;
+      background-size: 35px 14px;
+      top: 2px;
+      left: -4px;
+      position: relative;
+    }
+  }
+
+  .field--name-field-text {
+    p,
+    span {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.paragraph--type--dashboard {
+  border-top: 6px solid $green;
+}
+
+.field--name-field-figure-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Table of contents
+.layout--onecol:last-child {
+  display: block;
+  padding-top: 10px;
+  border-top: 1px solid $gray-200;
+
+  @include breakpoint(large) {
+    display: flex;
+  }
+
+  > .sidebar {
+    width: 100%;
+    @include breakpoint(large) {
+      width: 330px;
+      min-width: 330px;
+    }
+  }
+
+  > .layout__region {
+    width: 100%;
+    @include breakpoint(xlarge) {
+      width: 780px;
+      min-width: 780px;
+      padding-left: 30px;
+    }
+  }
+}
+
+.audit-toc-mobile {
+  align-items: center;
+  border: 1px #ccc solid;
+  border-left: none;
+  border-right: none;
+  color: $primary;
+  display: flex;
+  padding: 14px;
+  justify-content: space-between;
+  z-index: 10;
+  z-index: 1003;
+
+  @include breakpoint(large) {
+    display: none;
+  }
+
+  &:after {
+    content: "";
+    transition: background-color 0.25s ease;
+    width: 32px;
+    height: 32px;
+    flex: 0 1 auto;
+    display: block;
+    background: url("/themes/custom/qao/dist/images/icons/icon-hamburger-blue.png") no-repeat center center;
+    background-color: $white;
+    text-indent: -9999px;
+    text-align: center;
+  }
+}
+
+.audit-toc-mobile.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $white;
+}
+
+.audit-toc.fixed {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  padding-right: 30px;
+  max-height: 100vh;
+  overflow-y: hidden;
+  @include breakpoint(large) {
+    width: 330px;
+    top: 0;
+  }
+}
+
+.audit-toc {
+  background: $white;
+  color: $primary;
+  display: none;
+  width: 100%;
+  margin-left: -15px;
+  z-index: 1002;
+  @include breakpoint(large) {
+    display: block;
+    width: 300px;
+    margin-left: 0;
+    z-index: 1;
+  }
+
+  ul.coc_toc--list {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .coc_toc--list > li {
+    padding-left: 0.875rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-left: 4px $gray-300 solid;
+
+    &:before {
+      display: none;
+    }
+
+    &.active {
+      border-left-color: $orange;
+      background-color: $gray-200;
+      a {
+        font-weight: 600;
+      }
+    }
+
+    &.toc-node-level-2 {
+      display: none;
+      padding-left: 1.75rem;
+      padding-right: 0.5rem;
+    }
+    &.open {
+      display: block;
+      border-left-color: $orange;
+    }
+  }
+}
+
+.image-style-embed-small {
+  margin-right: 1rem;
+}
+
+.return-to-top {
+  background-color: $orange;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  bottom: 0;
+  color: $white;
+  cursor: pointer;
+  display: block;
+  padding-top: 8px;
+  position: fixed;
+  height: 40px;
+  right: 20%;
+  text-align: center;
+  width: 50px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border: solid $white;
+    border-width: 0 4px 4px 0;
+    padding: 6px;
+    transform: rotate(-135deg);
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+}

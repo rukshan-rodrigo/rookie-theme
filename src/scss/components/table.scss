@@ -1,0 +1,129 @@
+/**
+ * @file
+ * Styles for Bootstrap Barrio's tables.
+ */
+
+.sticky-header thead th {
+  vertical-align: bottom;
+  border-bottom: (2 * $table-border-width) solid $table-border-color;
+}
+
+.sticky-header th {
+  padding: $table-cell-padding;
+  vertical-align: top;
+  border-top: $table-border-width solid $table-border-color;
+}
+
+.qao-table {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid $primary;
+
+  thead th {
+    background-color: $primary;
+    color: $white;
+    display: none;
+
+    @include breakpoint(large) {
+      display: table-cell;
+    }
+  }
+
+  td,
+  th {
+    vertical-align: middle;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  td {
+    color: $dark-gray-color;
+    display: block;
+    width: 100%;
+
+    @include breakpoint(large) {
+      vertical-align: top;
+      color: $primary;
+      display: table-cell;
+      width: auto;
+    }
+
+    &:before {
+      content: attr(data-key);
+      display: block;
+      font-weight: 400;
+      color: $primary;
+
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
+  }
+  td ~ td {
+    color: $dark-gray-color;
+  }
+
+  tbody tr {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    @include breakpoint(large) {
+      display: table-row;
+      margin-bottom: 0;
+    }
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background-color: $gray-100;
+  }
+}
+
+table.qao-alt-table {
+  tr {
+    &:nth-child(even),
+    &:nth-child(odd) {
+      background-color: $gray-100;
+    }
+  }
+}
+
+table.qao-case-study {
+  width: 100%;
+  border-bottom: 1px solid $primary;
+
+  thead tr {
+    background-color: $primary;
+    th {
+      background-color: transparent;
+      border-bottom: none;
+    }
+  }
+
+  @include breakpoint(large) {
+    thead {
+      display: table-header-group !important;
+    }
+  }
+
+  th {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+  }
+  td {
+    vertical-align: middle;
+    border-top: none;
+    background-color: #edecef;
+    color: $black;
+
+    &:before {
+      display: none;
+    }
+  }
+  p {
+    color: $black;
+  }
+}

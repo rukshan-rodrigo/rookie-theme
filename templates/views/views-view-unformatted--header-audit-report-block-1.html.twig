@@ -1,0 +1,88 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h2>{{ title }}</h2>
+{% endif %}
+{% for row in rows %}
+
+  {% set field_banner_image = row.content['#view'].field.field_banner_image.original_value %}
+  {% set field_report_version = row.content['#view'].field.field_report_version.original_value %}
+  {% set title = row.content['#view'].field.title.original_value %}
+  {% set field_audit_objective = row.content['#view'].field.field_audit_objective.original_value %}
+
+  {% set field_report_products = row.content['#view'].result.0._entity.field_report_products %}
+
+  {% set is_annual_report = row.content['#view'].field.field_annual_report_checkbox.original_value %}
+
+<div class="views-row">
+  <div class="report-banner">
+    <div class="report-banner-image">
+      <div class="field field-name-field-qao-banner-image field-type-image">
+        {{ field_banner_image }}
+      </div>
+    </div>
+    <div class="report-banner-content">
+      {% if is_annual_report == "False" %}
+        <div class="report-version">
+          {{ field_report_version }}
+        </div>
+      {% endif %}
+
+      <h1 class="report-banner-title">{{ title }}</h1>
+
+      {% if is_annual_report == "False" %}
+        <div class="report-banner-secondary-title">Audit objective</div>
+        <div class="report-banner-summary">{{ field_audit_objective|raw }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="report-products">
+      <div class="report-products-toggle toggle">
+        <div>Report summary products</div>
+      </div>
+      <div class="report-products-items">
+
+        {% for report_product in field_report_products %}
+
+          {% set linkTitle =  report_product.entity.field_link_title.value %}
+          {% set iconType = report_product.entity.field_report_product_icon.value %}
+          {% set linkFromUrl = report_product.entity.field_report_product_link.uri %}
+          {% set linkFromFile = file_url(report_product.entity.field_report_product_file.entity.field_media_file.0.entity.uri.value) %}
+
+          {% if linkFile == '/' %}
+            {% set link = linkFromUrl %}
+          {% else %}
+            {% set link = linkFromFile %}
+          {% endif %}
+
+          <div class="field-item">
+            <div class="report-item">
+              <a href="{{ link }}">
+                <span class="icon-{{ iconType }}"><span>{{ linkTitle }}</span></span>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}

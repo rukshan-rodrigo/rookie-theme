@@ -1,0 +1,161 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the SASS Starterkit subtheme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_form_system_theme_settings_alter() for settings form.
+ *
+ * Replace Barrio setting options with subtheme ones.
+ *
+ * Example on how to alter theme settings form.
+ */
+function qao_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = [
+    'bg-primary' => t('Primary'),
+    'bg-secondary' => t('Secondary'),
+    'bg-light' => t('Light'),
+    'bg-dark' => t('Dark'),
+    'bg-white' => t('White'),
+    'bg-transparent' => t('Transparent'),
+  ];
+  $form['components']['navbar']['bootstrap_barrio_navbar_background']['#options'] = [
+    'bg-primary' => t('Primary'),
+    'bg-secondary' => t('Secondary'),
+    'bg-light' => t('Light'),
+    'bg-dark' => t('Dark'),
+    'bg-white' => t('White'),
+    'bg-transparent' => t('Transparent'),
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function qao_preprocess_page(&$variables) {
+  // Set the sidebar break in larger breakpoint.
+  unset($variables['sidebar_first_attributes']['class']);
+  $sidebar_first_width = 'col-lg-' . theme_get_setting('bootstrap_barrio_sidebar_first_width');
+  $variables['sidebar_first_attributes']['class'] = [
+    'sidebar',
+    'order-first',
+    $sidebar_first_width,
+  ];
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function qao_element_info_alter(array &$info) {
+  $elements = ['radio', 'submit'];
+  foreach ($elements as $element) {
+    if (isset($info[$element])) {
+      $info[$element]['#process'][] = 'qao_element_process';
+    }
+  }
+}
+
+/**
+ * Process callback for form elements.
+ *
+ * @param array $element
+ *   The form element.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ * @param array $complete_form
+ *   The complete form array.
+ *
+ * @return mixed
+ *   The form element.
+ */
+function qao_element_process(array &$element, FormStateInterface $form_state, array &$complete_form) {
+  // Attach the form id to the element for use in the template suggestions.
+  if (isset($complete_form['#form_id'])) {
+    $element['#form_id'] = $complete_form['#form_id'];
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function qao_theme_suggestions_input_alter(array &$suggestions, array $variables) {
+  // Use Form ID for the template suggestion.
+  if (isset($variables['element']['#form_id'])) {
+    $suggestions[] = "input__{$variables['element']['#type']}__{$variables['element']['#form_id']}";
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function qao_preprocess_input__email(&$variables) {
+  if (isset($variables['element']['#id']) && $variables['element']['#id'] === 'edit-mergevars-email') {
+    $variables['placeholder'] = t('Email');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function qao_preprocess_input__textfield(&$variables) {
+  if (isset($variables['element']['#id']) && $variables['element']['#id'] === 'edit-mergevars-fname') {
+    $variables['placeholder'] = t('Name');
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function qao_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
+  _qao_theme_view_id_display_theme_suggestions($suggestions, $variables);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function qao_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  _qao_theme_view_id_display_theme_suggestions($suggestions, $variables);
+}
+
+/**
+ * Re-usable function to add the view ID and display mode to view templates.
+ */
+function _qao_theme_view_id_display_theme_suggestions(array &$suggestions, array $variables) {
+  if (isset($variables['view'])) {
+    $hook = str_replace('-', '_', "{$variables['view']->id()}_{$variables['view']->current_display}");
+    $suggestions[] = "{$variables['theme_hook_original']}__{$hook}";
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function qao_preprocess_views_view_summary__archive(array &$variables) {
+  // Prepare template variables.
+  foreach ($variables['rows'] as $index => $row) {
+    $yearMonth = $variables['rows'][$index]->link;
+    $monthNumber = substr($yearMonth, 4, 2);
+    $monthName = DateTime::createFromFormat('!m', $monthNumber)->format('F');
+
+    $variables['rows'][$index]->year  = substr($yearMonth, 0, 4);
+    $variables['rows'][$index]->month = $monthName;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function qao_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if (strtolower($hook) == 'better_social_sharing_buttons') {
+    $node = Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface) {
+      $suggestions[] = $hook . '__' . $node->bundle();
+    }
+  }
+}

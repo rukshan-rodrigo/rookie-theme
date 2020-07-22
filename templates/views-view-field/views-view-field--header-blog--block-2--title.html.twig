@@ -1,0 +1,12 @@
+{# see breadcrumb_alter_preprocess_views_view_field for more information#}
+
+{% if custom_title is null %}
+    {% set title = row._entity.title.value %}
+{% else %}
+    {% set title = custom_title %}
+{% endif %}
+
+<div class="container page-hero-title">
+    <h1>{{ title }}</h1>
+</div>
+

@@ -1,0 +1,101 @@
+@import "../../variables";
+@import "../../mixins";
+
+.accordion {
+  .card {
+    border: 2px solid $gray-300;
+  }
+
+  .card-header {
+    background-color: $white;
+  }
+
+  .panel-title {
+    margin: 0;
+
+    button {
+      width: 100%;
+      text-align: left;
+
+      &.collapsed {
+        > .fa-plus {
+          display: inline-block;
+        }
+      }
+
+      &:not(.collapsed) > .fa-minus {
+        display: inline-block;
+      }
+    }
+
+    .fas {
+      display: none;
+      float: right;
+    }
+  }
+
+  .btn-link {
+    font-size: 1.125rem;
+    color: $primary;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+  }
+
+  .field--name-field-report-content & {
+    border: 0;
+    background-color: $gray-100;
+    padding: 3rem 2rem 2rem 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 6px solid $primary-shade;
+
+    .card {
+      border: 1px solid $primary;
+      background: white;
+      p {
+        margin-bottom: 0;
+      }
+    }
+    .accordion > .card:first-of-type {
+      border-bottom: 1px solid $primary;
+    }
+
+    .card-header {
+      background-color: transparent;
+      border-bottom: 0;
+    }
+
+    .btn-link {
+      width: 100%;
+      padding: 0;
+
+      .field--name-field-text {
+        float: left;
+      }
+      .read-more,
+      .less {
+        float: right;
+      }
+    }
+
+    .read-more {
+      display: none;
+    }
+    .less {
+      display: block;
+    }
+
+    .collapsed {
+      .read-more {
+        display: block;
+      }
+      .less {
+        display: none;
+      }
+    }
+  }
+}
+
+.paragraph--type--accordion-group > h3 {
+  margin: 1.5rem 0;
+}

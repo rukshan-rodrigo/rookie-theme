@@ -1,0 +1,75 @@
+@import "../../mixins";
+@import "../../variables";
+
+.field--name-field-appendices-files {
+  position: relative;
+  padding-bottom: 1rem;
+  &:before {
+    content: "";
+    position: absolute;
+    background: $primary;
+    height: calc(100% + 200px);
+    width: 100vw;
+    margin-left: -15px;
+    top: -130px;
+    z-index: -2;
+
+    @include breakpoint(medium) {
+      margin-left: calc(345px - 50vw);
+    }
+    @include breakpoint(large) {
+      margin-left: calc(135px - 50vw);
+    }
+    @include breakpoint(xlarge) {
+      margin-left: calc(185px - 50vw);
+    }
+  }
+  > a {
+    color: $white;
+    background-size: auto;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-bottom: 0.125rem;
+    border-bottom: 1px solid $primary-light;
+    padding: 0 0 0.75rem 1rem;
+
+    > span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    > .field__item {
+      &:before {
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        margin-right: 1rem;
+      }
+    }
+    &.icon-barchart > .field__item:before {
+      background: url("/themes/custom/qao/dist/images/icons/barchart-white.svg") no-repeat center center;
+    }
+    &.icon-pdf > .field__item:before {
+      background: url("/themes/custom/qao/dist/images/icons/pdf-white.svg") no-repeat center center;
+    }
+    &.icon-video > .field__item:before {
+      background: url("/themes/custom/qao/dist/images/icons/video-white.svg") no-repeat center center;
+    }
+    &.icon-podcast > .field__item:before {
+      background: url("/themes/custom/qao/dist/images/icons/podcast-white.svg") no-repeat center center;
+    }
+    &.icon-file > .field__item:before {
+      background: url("/themes/custom/qao/dist/images/icons/file-white.svg") no-repeat center center;
+    }
+  }
+}
+
+.block-field-blocknodeaudit-reportfield-appendices-files #appendices {
+  margin: 4rem 0 2rem;
+}

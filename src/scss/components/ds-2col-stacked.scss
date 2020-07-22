@@ -1,0 +1,9 @@
+.ds-2col-stacked {
+  > .group-left,
+  > .group-right {
+    width: 100%;
+    @include breakpoint(large) {
+      width: 50%;
+    }
+  }
+}

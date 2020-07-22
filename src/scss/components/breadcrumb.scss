@@ -1,0 +1,23 @@
+.breadcrumb {
+  padding: 0;
+  list-style: none;
+  background-color: $white;
+  font-size: $font-size-sm;
+
+  a {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    letter-spacing: -0.16px;
+    color: $body-color;
+  }
+}
+
+.breadcrumb-item {
+  + .breadcrumb-item {
+    padding-left: $breadcrumb-item-padding;
+
+    &::before {
+      content: $breadcrumb-divider;
+    }
+  }
+}

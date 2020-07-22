@@ -1,0 +1,101 @@
+@import "../../mixins";
+
+.graduate-card {
+  @include breakpoint(large) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    word-wrap: break-word;
+    background-clip: border-box;
+  }
+
+  .card-left {
+    margin-bottom: auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    @include breakpoint(large) {
+      width: 100px;
+    }
+  }
+
+  .card-right {
+    flex: 1;
+    margin: 0 1.5rem;
+
+    @include date-tags();
+  }
+
+  h3,
+  h4,
+  h5 {
+    margin-top: 0.5rem;
+
+    a {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+  }
+
+  .read-more {
+    margin-top: 1rem;
+    display: block;
+    color: $body-color;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+
+    .field--name-field-teaser-link-text {
+      @include right-arrow;
+    }
+  }
+}
+
+.node--type-career-graduate-article.node--view-mode-teaser {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+
+  .node__content {
+    margin-top: 0;
+  }
+}
+
+.view-id-recent_graduates {
+  margin-bottom: 1.5rem;
+
+  .views-row {
+    margin-bottom: 3rem;
+    flex: 1 0 100%;
+
+    &:first-child {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.paragraph--type--people-group {
+  .field--name-field-heading {
+    font-size: 1.75rem;
+    color: $primary;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .field--name-field-tiles .paragraph--type--person {
+    margin-bottom: 1.5rem;
+  }
+
+  .field--name-field-name {
+    color: $primary;
+  }
+
+  .field--name-field-title {
+    .field__label,
+    .field__item {
+      display: inline-block;
+      font-size: 1.25rem;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "../../variables";
+@import "../../mixins";
+
+.field--name-field-reports-and-resources {
+  display: flex;
+  justify-content: space-between;
+
+  .field__item {
+    width: 100%;
+
+    @include breakpoint(large) {
+      width: 30%;
+    }
+  }
+
+  a {
+    color: $dark-gray-color;
+  }
+
+  span.content-text {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

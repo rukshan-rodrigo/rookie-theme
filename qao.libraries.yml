@@ -1,0 +1,104 @@
+global-styling:
+  version: 1.0.0
+  js:
+    dist/js/global.js: {}
+  css:
+    component:
+      dist/css/style.min.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+accordion:
+  css:
+    component:
+      dist/css/components/attached/accordion.min.css: {}
+blog-landing:
+  css:
+    component:
+      dist/css/components/attached/blog-landing.min.css: {}
+annual-reports:
+  css:
+    component:
+      dist/css/components/attached/annual-reports.min.css: {}
+view-filters:
+  css:
+    component:
+      dist/css/components/attached/view-filters.min.css: {}
+view-content:
+  css:
+    component:
+      dist/css/components/attached/view-content.min.css: {}
+audit:
+  css:
+    component:
+      dist/css/components/attached/audit.min.css: {}
+audit-reports:
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js: {}
+    dist/js/jquery.floatThead.min.js: {}
+    dist/js/table-of-content-min.js: {}
+    dist/js/qao-audit-report-min.js: {}
+  dependencies:
+    - core/backbone
+  css:
+    component:
+      dist/css/components/attached/audit-reports.min.css: {}
+audit-reports-header:
+  css:
+    component:
+      dist/css/components/attached/audit-reports-header.min.css: {}
+audit-reports-timeline:
+  css:
+    component:
+      dist/css/components/attached/audit-reports-timeline.min.css: {}
+audit-reports-appendices:
+  css:
+    component:
+      dist/css/components/attached/audit-reports-appendices.min.css: {}
+reports-and-resources:
+  css:
+    component:
+      dist/css/components/attached/reports-and-resources.min.css: {}
+latest-reports:
+  css:
+    component:
+      dist/css/components/attached/latest-reports.min.css: {}
+contribute-to-our-audits:
+  css:
+    component:
+      dist/css/components/attached/contribute-to-our-audits.min.css: {}
+hero-banner:
+  css:
+    component:
+      dist/css/components/attached/hero-banner.min.css: {}
+blog-post:
+  css:
+    component:
+      dist/css/components/attached/blog-post.min.css: {}
+tiles:
+  css:
+    component:
+      dist/css/components/attached/tiles.min.css: {}
+bootstrap:
+  js:
+    dist/js/popper.min.js: {}
+    dist/js/bootstrap.min.js: {}
+  css:
+    component:
+      dist/css/bootstrap.min.css: { weight: -1 }
+career-opportunities:
+  css:
+    component:
+      dist/css/components/attached/career-opportunities.min.css: {}
+graduate-list:
+  css:
+    component:
+      dist/css/components/attached/graduate-list.min.css: {}
+monserrat_lato:
+  css:
+    component:
+      //fonts.googleapis.com/css?family=Montserrat:400,500,600: {}
+page-header:
+  css:
+    component:
+      dist/css/components/attached/page-header.min.css: {}

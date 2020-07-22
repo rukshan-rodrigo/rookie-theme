@@ -1,0 +1,10 @@
+
+{% set status = row._entity.field_status.0.value|lower %}
+{% set webform_state = row._entity.field_a.0.status|lower %}
+{% set nid = row._entity.nid.value %}
+
+<div>
+    {% if (status == 'planned' or status == 'in_progress') and webform_state == 'open'  %}
+        <a href="{{ path('entity.node.canonical', {'node': nid}) }}" class="text-uppercase btn btn-primary">Contribute now</a>
+    {% endif %}
+</div>

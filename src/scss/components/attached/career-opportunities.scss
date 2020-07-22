@@ -1,0 +1,40 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/vendor/rfs";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/buttons";
+// stylelint-disable at-rule-no-unknown
+
+.node--type-career-opportunity {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+
+  .node__content {
+    margin-top: 0;
+  }
+
+  .field--label-inline {
+    display: flex;
+  }
+
+  .field__label {
+    padding-right: 0.5rem;
+
+    &:after {
+      content: ": ";
+      display: inline-block;
+    }
+  }
+
+  .field--name-body {
+    margin-top: 2rem;
+  }
+
+  .field--name-field-view-position {
+    a {
+      @extend .btn;
+      @extend .btn-primary;
+    }
+  }
+}

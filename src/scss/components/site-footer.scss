@@ -1,0 +1,57 @@
+/**
+ * @file
+ * Footer Styling.
+ */
+.site-footer {
+  padding: 2rem $spacer;
+  font-size: $font-size-sm;
+
+  .layout-container {
+    padding: 0 $spacer;
+  }
+}
+
+.menu--footer {
+  .navbar-nav {
+    @include breakpoint(xlarge) {
+      flex-direction: row;
+    }
+  }
+
+  li {
+    margin-right: 1.125rem;
+
+    &:last-child {
+      margin-right: 0;
+
+      a {
+        text-indent: -10000px;
+        background: url("/themes/custom/qao/dist/images/icons/linkedin.svg") 0 0.5rem no-repeat;
+        width: 22px;
+
+        @include breakpoint(xlarge) {
+          background: url("/themes/custom/qao/dist/images/icons/linkedin.svg") 0 0;
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+
+  a {
+    color: $white;
+    font-size: $font-size-sm;
+
+    @include breakpoint(xlarge) {
+      padding: 0;
+    }
+  }
+}
+
+.site-footer__bottom {
+  margin-top: 1.5rem;
+  border-top: 1px solid #c0bfbf;
+  color: $white;
+  font-size: $font-size-sm;
+  padding-top: 1.5rem;
+}

@@ -1,0 +1,110 @@
+/* ------------------ Sidebar ----------------- */
+
+.sidebar {
+  .block {
+    padding: 0 $spacer $spacer 0;
+    margin: 0 0 $spacer;
+
+    .content {
+      font-size: $font-size-base;
+      line-height: $line-height-sm;
+    }
+  }
+
+  h2 {
+    margin: 0 0 ($spacer * 0.5);
+    padding-bottom: 0.315rem;
+    font-size: $font-size-base;
+    font-weight: 600;
+    line-height: $headings-line-height;
+  }
+
+  nav ul.nav {
+    margin: 0 - ($spacer);
+  }
+}
+
+.layout__region--first {
+  .navigation.menu--main,
+  .menu--audit-program-menu {
+    .nav-item {
+      &.menu-item--expanded > a,
+      &.menu-item--collapsed > a {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      &.menu-item--collapsed > a:after {
+        content: "";
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        margin-left: 0.255em;
+        vertical-align: 0.255em;
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+      }
+
+      a {
+        font-size: $font-size-sm;
+        letter-spacing: -0.13px;
+        color: $body-color;
+        padding: 0.75rem;
+        border-left: 0.25rem solid $gray-500;
+        white-space: pre-wrap;
+
+        &:hover,
+        &:focus {
+          border-left: 0.25rem solid $primary;
+          background-color: $gray-600;
+        }
+
+        &.btn-primary {
+          color: $white;
+          border-left: 0;
+          margin-top: 1rem;
+          &:hover,
+          &:focus {
+            color: $white;
+            background-color: $primary-hover;
+          }
+        }
+        &.is-active {
+          font-weight: 600;
+        }
+      }
+
+      &.active {
+        a {
+          border-left: 0.25rem solid $primary;
+          background-color: $gray-600;
+        }
+      }
+
+      .dropdown-menu {
+        display: block;
+        position: relative;
+        float: none;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        top: 0;
+
+        li {
+          padding: 0;
+        }
+        a {
+          display: block;
+          white-space: pre-wrap;
+          padding-left: 1.5rem;
+        }
+
+        &.show {
+          position: relative !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import "../../variables";
+@import "../../mixins";
+
+.paragraph--type--hero-banner {
+  width: 100vw;
+  position: relative;
+  max-height: 400px;
+  @include breakpoint(medium) {
+    max-height: 500px;
+  }
+  @include breakpoint(xlarge) {
+    margin-left: -15px;
+  }
+
+  .hero-overlay {
+    position: relative;
+    background-color: rgba(40, 51, 110, 0.86);
+    text-align: center;
+    max-width: 1110px;
+    bottom: 250px;
+    margin: auto;
+    padding: 1rem;
+
+    @include breakpoint(large) {
+      bottom: 270px;
+      padding: 1.75rem 15rem;
+    }
+
+    .field--name-field-heading,
+    .field--name-field-content p {
+      color: $white;
+    }
+
+    .field--name-field-heading {
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .field--name-field-media-image {
+    img {
+      height: 400px;
+      width: 100%;
+      object-fit: cover;
+      @include breakpoint(medium) {
+        height: 500px;
+      }
+    }
+  }
+}

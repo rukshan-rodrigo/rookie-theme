@@ -1,0 +1,95 @@
+@import "../../mixins";
+@import "../../variables";
+@import "../../typography";
+.view-reports-to-parliament .view-content {
+  .views-row {
+    width: 100%;
+    padding: 1.75em 0;
+    border-bottom: 1px solid $gray-300;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+  header {
+    margin-bottom: 2rem;
+  }
+
+  .field--name-field-thumbnail img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .field--name-title a {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .field--name-field-subtitle,
+  .field--name-field-report-version {
+    font-family: $font-roboto-condensed;
+    background-color: $gray-300;
+    border-radius: 5px;
+    padding: 5px 11px 5px 11px;
+    margin-right: 12px;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-stretch: condensed;
+    text-transform: uppercase;
+  }
+
+  .field--name-node-title {
+    color: $primary;
+    margin-bottom: 1rem;
+  }
+
+  .btn-primary {
+    padding: 1rem 2rem;
+  }
+
+  .field--name-field-tabled-date {
+    font-family: $font-roboto-condensed;
+    display: flex;
+    margin: 0.5rem 0;
+    .field__item {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .field--name-field-sectors {
+    display: flex;
+
+    > .field__item {
+      font-family: $font-roboto-condensed;
+      margin-right: 0.5rem;
+      padding: 5px 12px;
+      border-radius: 5px;
+      background-color: $green;
+      color: $white;
+    }
+  }
+
+  .vocabulary-report-sectors {
+    h2 {
+      margin-bottom: 0;
+    }
+    .field--name-name {
+      font-family: $font-roboto-condensed;
+      font-size: 1rem;
+      color: $white;
+    }
+  }
+}
+
+.view-annual-reports .view-content {
+  width: 100%;
+  padding: 1rem 0 1.75rem;
+  .field-content > a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

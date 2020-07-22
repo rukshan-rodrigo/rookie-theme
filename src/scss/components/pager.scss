@@ -1,0 +1,13 @@
+ul.pagination {
+  display: flex;
+  justify-content: center;
+
+  .page-item.active .page-link {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  .page-link {
+    color: $primary;
+  }
+}

@@ -1,0 +1,93 @@
+@import "../../variables";
+@import "../../mixins";
+
+.block-views-blockhome-contribute-to-our-audits-block-1 {
+  background: $light-blue-bg;
+  width: 100%;
+
+  .view-content.row {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+
+  .view-header {
+    position: absolute;
+    right: 1.5rem;
+    bottom: -20px;
+
+    @include breakpoint(large) {
+      top: -85px;
+      right: 0;
+      bottom: auto;
+    }
+
+    .see-all-audits {
+      font-weight: 600;
+      color: $body-color;
+      font-size: 1.125rem;
+
+      @include right-arrow($color: $body-color, $marginLeft: 0.25rem);
+    }
+  }
+
+  > h2,
+  > .content {
+    margin: auto;
+
+    @include breakpoint(xlarge) {
+      width: 1110px;
+    }
+  }
+
+  > h2 {
+    margin-bottom: 3rem;
+  }
+
+  .views-row > .col-md-12 {
+    border-radius: 1rem;
+    border: 1px solid $gray-300;
+    background-color: $white;
+    padding: 2rem 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+    height: 100%;
+
+    > .views-field {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .views-field-title {
+      margin-bottom: 1rem;
+      a {
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+    }
+
+    .views-field-field-status {
+      margin-top: auto;
+      margin-bottom: 0.75rem;
+    }
+
+    > .views-field-nothing {
+      padding-left: 0;
+      padding-right: 0;
+      min-height: 40px;
+    }
+    .views-field-nothing .btn.btn-primary {
+      text-align: right;
+      font-weight: 600;
+      display: block;
+      background-color: transparent;
+      padding: 0.75rem 1rem 0;
+      color: $body-color;
+      border: 0;
+      border-top: 1px solid $gray-300;
+
+      @include right-arrow($color: $body-color, $marginLeft: 0.25rem);
+    }
+  }
+}

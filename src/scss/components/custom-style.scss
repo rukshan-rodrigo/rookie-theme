@@ -1,0 +1,75 @@
+a.btn-secondary {
+  color: $primary;
+  background-color: $gray-400;
+  border-color: $gray-400;
+
+  &:hover {
+    color: $primary;
+    background-color: $btn-secondary-hover;
+    border-color: $btn-secondary-hover;
+  }
+}
+
+a.btn-with-icon {
+  display: inline-flex;
+  align-items: center;
+  &:before {
+    content: "";
+    width: 1rem;
+    height: 1.25rem;
+    background-repeat: no-repeat;
+    background-size: 1rem 1.25rem;
+    margin-right: 0.5rem;
+    background-image: url("/themes/custom/qao/dist/images/icons/download-white.png");
+  }
+}
+
+.heading-underline {
+  @include heading-underline;
+  &:after {
+    margin-top: 0.5rem;
+  }
+}
+
+.big-text {
+  display: block;
+  font-weight: 500;
+  color: $dark-gray-color;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 1110px;
+}
+
+.chevron-link {
+  font-size: 1rem;
+  color: $dark-gray-color;
+  font-weight: 600;
+  max-width: 1110px;
+  margin-top: 0.5rem;
+
+  &:hover,
+  &:focus {
+    color: $dark-gray-color;
+    text-decoration: underline;
+    &:after {
+      text-decoration: underline;
+    }
+  }
+
+  &:after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.5rem;
+    border: solid $dark-gray-color;
+    border-width: 0 3px 3px 0;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+
+  .paragraph--type--hero-banner & {
+    color: $white;
+    &:after {
+      border-color: $white;
+    }
+  }
+}

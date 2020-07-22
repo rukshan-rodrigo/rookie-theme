@@ -1,0 +1,11 @@
+.paragraph--type--statement-block {
+  padding: 3.75rem;
+  background-color: $light-blue-bg;
+  display: flex;
+  justify-content: center;
+  margin-left: -15px;
+  width: 100vw;
+  .field--name-field-content {
+    text-align: center;
+  }
+}

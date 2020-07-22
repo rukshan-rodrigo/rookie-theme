@@ -1,0 +1,48 @@
+@import "../../variables";
+@import "../../mixins";
+
+.view-archive,
+.view-blog-categories {
+  .item-list {
+    li {
+      font-size: 0.9rem;
+      letter-spacing: -0.13px;
+      color: $body-color;
+      padding: 0.75rem;
+      border-left: 0.25rem solid $gray-500;
+
+      &:hover,
+      &:focus {
+        border-left: 0.25rem solid $primary;
+        background-color: $gray-600;
+      }
+    }
+
+    &.active {
+      a {
+        border-left: 0.25rem solid $primary;
+        background-color: $gray-600;
+      }
+    }
+  }
+}
+
+.view-id-blog.view-display-id-page_1,
+.view-id-blog.view-display-id-page_2,
+.view-id-blog_recent_articles {
+  @include breakpoint(large) {
+    .view-content {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 20px;
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS styles go here */
+        justify-content: space-between;
+      }
+
+      .card-tile {
+        max-width: 400px;
+      }
+    }
+  }
+}

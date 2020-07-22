@@ -1,0 +1,55 @@
+@import "../../mixins";
+@import "../../variables";
+
+.field--name-field-tiles {
+  display: block;
+  @include breakpoint(medium) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  > .field__item {
+    width: 100%;
+    margin-bottom: 1rem;
+    @include breakpoint(medium) {
+      width: calc(33% - 1rem);
+      margin-right: 1.5rem;
+      background-color: $gray-600;
+      margin-bottom: 2.5rem;
+    }
+
+    a {
+      color: $primary;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    .paragraph--type--tile {
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .field--name-field-link {
+        text-align: center;
+
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+          a {
+            display: block;
+            max-width: 270px;
+          }
+        }
+      }
+    }
+
+    .field--name-field-icon-image {
+      margin-bottom: 1rem;
+    }
+  }
+}

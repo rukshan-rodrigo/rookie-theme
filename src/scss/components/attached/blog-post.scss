@@ -1,0 +1,113 @@
+@import "../../mixins";
+@import "../../variables";
+.main-content .node--type-blog-post {
+  &.node--view-mode-featured-articles-posts {
+    .card-rect {
+      width: 100%;
+    }
+  }
+
+  .group-header {
+    display: none;
+  }
+  // Left column
+  .group-left {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include breakpoint(large) {
+      width: 20%;
+      flex-direction: column;
+    }
+  }
+  .field--name-field-author-image {
+    text-align: center;
+    flex: 1 0 30%;
+    order: 1;
+
+    @include breakpoint(large) {
+      flex: 1 0 auto;
+      order: 2;
+    }
+
+    img {
+      width: 65px;
+
+      @include breakpoint(large) {
+        border-radius: 0 0 50% 50%;
+      }
+    }
+  }
+
+  .field--name-field-author-name,
+  .field--name-field-author-role {
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-align: left;
+    flex: 1 0 70%;
+    order: 2;
+
+    @include breakpoint(large) {
+      flex: 1 0 auto;
+      text-align: center;
+      order: 1;
+    }
+    .field__label,
+    .field__item {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .field--name-better-social-sharing-buttons {
+    flex: 1 0 100%;
+    order: 3;
+    .social-sharing-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @include breakpoint(medium) {
+        justify-content: flex-start;
+      }
+
+      @include breakpoint(large) {
+        flex-direction: column;
+      }
+      .social-sharing-buttons__button > svg {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  // Right column
+  .group-right {
+    width: 100%;
+    @include breakpoint(large) {
+      width: 80%;
+    }
+  }
+
+  .field--name-field-date,
+  .field--name-field-category {
+    display: inline-block;
+    font-size: 1rem;
+  }
+  .field--name-field-date {
+    font-weight: 600;
+  }
+
+  .field--name-field-category {
+    a {
+      background-color: $primary;
+      border-radius: 8px;
+      color: $white;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 6px;
+      padding: 3px 8px;
+      text-transform: uppercase;
+    }
+  }
+}

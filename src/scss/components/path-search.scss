@@ -1,0 +1,33 @@
+.path-search {
+  .main-content .search-form {
+    margin-bottom: 2rem;
+  }
+
+  .search-form > .container-inline {
+    @include breakpoint(large) {
+      padding: 0;
+    }
+
+    > .js-form-item {
+      display: inline-block;
+
+      @include breakpoint(large) {
+        padding-left: 0;
+        width: calc(100% - 120px);
+      }
+    }
+    > button {
+      display: inline-block;
+    }
+  }
+
+  .search-help-link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .search-advanced {
+    color: black;
+  }
+}
