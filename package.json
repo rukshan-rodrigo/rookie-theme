@@ -42,7 +42,7 @@
     "gulp-scss-lint": "^1.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylelint": "^9.0.0",
-    "stylelint": "^11.0.0",
+    "stylelint": "^15.10.1",
     "stylelint-checkstyle-formatter": "^0.1.2",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-no-browser-hacks": "^1.2.1"
